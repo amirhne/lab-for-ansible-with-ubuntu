@@ -4,7 +4,7 @@ This is docker-compose file that create a lab environment for practicing with an
 ## How to work with it?
 You should have docker and docker-compsose installed on your machine and user the following command in project directory to run the it:
 ```
-docker-compose up
+docker-compose up -d
 ```
 to stop the project use the following command:
 ```
