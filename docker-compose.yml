@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  ubuntu_ansible_1:
+    build:
+      context: .
+      dockerfile: ubuntu_with_sshd.Dockerfile
+    image: ubuntu_ansible:latest
+    hostname: ubuntu_1
+    
+    ports:
+      - '22:22'
+  
+  ubuntu_ansible_2:
+    image: ubuntu_ansible:latest
+    hostname: ubuntu_2
+
+    ports:
+      - '23:22'
+  
+  ubuntu_ansible_3:
+    image: ubuntu_ansible:latest
+    hostname: ubuntu_3
+
+    ports:
+      - '24:22'
