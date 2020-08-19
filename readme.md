@@ -13,9 +13,13 @@ docker-compose down
 
 ## SSH Credentials and Configuration
 ubuntu_1 : 127.0.0.1:22
+
 ubuntu_2: 127.0.0.1:23
+
 ubuntu_3: 127.0.0.1:24
 
 Username and password for all machines:
+
 user: ansible
+
 pass: 1234567
