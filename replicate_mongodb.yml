@@ -1,0 +1,16 @@
+---
+- hosts: main_db
+  become: yes
+  tasks:
+  
+  - name: Create dump file on Main DB
+    shell: rm -rf /home/ansible/dump/* && mongodump -d names -o /home/ansible/dump
+
+- hosts: backup_dbs
+  tasks:
+  - name: Get Dump Files from Main DB 
+    shell: rm -rf /home/ansible/dump/* && scp -r ansible@ubuntu_ansible_1:/home/ansible/dump/* /home/ansible/dump/
+
+  - name: Import Dump Files on Backup dbs
+    shell: mongorestore --drop /home/ansible/dump/
+  
