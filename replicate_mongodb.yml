@@ -1,12 +1,12 @@
 ---
-- hosts: main_db
+- hosts: main_db #ubuntu_ansible_1
   become: yes
   tasks:
   
   - name: Create dump file on Main DB
     shell: rm -rf /home/ansible/dump/* && mongodump -d names -o /home/ansible/dump
 
-- hosts: backup_dbs
+- hosts: backup_dbs #ubuntu_ansible_2 & ubuntu_ansible_3
   tasks:
   - name: Get Dump Files from Main DB 
     shell: rm -rf /home/ansible/dump/* && scp -r ansible@ubuntu_ansible_1:/home/ansible/dump/* /home/ansible/dump/
